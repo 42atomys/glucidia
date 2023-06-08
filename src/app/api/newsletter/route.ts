@@ -37,11 +37,9 @@ export const POST = async (request: Request) => {
       },
     })
     .then((res) => {
-      console.log(res);
       return NextResponse.json({ email: res.email });
     })
     .catch((err) => {
-      console.log(err);
       return NextResponse.json({ error: err }, { status: 400 });
     });
 };
