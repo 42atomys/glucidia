@@ -6,6 +6,10 @@ permissions:
 
 on:
   workflow_call:
+    secrets:
+      FONTAWESOME_NPM_AUTH_TOKEN:
+        required: true
+        description: "The token to authenticate to the Font Awesome NPM registry"
     outputs:
       image:
         description: The image builded and pushed to the registry
@@ -55,3 +59,4 @@ jobs:
           file: Dockerfile
           build-args: |
             APP_VERSION=${{ steps.meta.outputs.version }}
+            FONTAWESOME_NPM_AUTH_TOKEN=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}

@@ -1,38 +1,7 @@
-import { NextResponse } from "next/server";
-
-type CalculationRequest = {
-  bloodSugar: number;
-  plannedCarbGrams: number;
-  target?: number;
-  dailyInsulinAverage?: number;
-  algorithm?: number;
-};
-
-type ResponseData =
-  | {
-      sugar: {
-        current: number;
-        target: number;
-        correctionDose: number;
-      };
-      meal: {
-        plannedCarbGrams: number;
-        carbDose: number;
-      };
-      _calculation: {
-        dailyInsulinAverage: number;
-        insulinSensitivityFactor: number;
-        algorithm: number;
-        pumpRatio: number;
-      };
-      totalDose: number;
-    }
-  | {
-      error: string;
-    };
+import { NextResponse } from 'next/server';
 
 export const POST = async (request: Request) => {
-  const data: CalculationRequest = await request.json().catch(() => ({}));
+  const data: API.CalculationRequest = await request.json().catch(() => ({}));
 
   const {
     bloodSugar,
@@ -45,7 +14,7 @@ export const POST = async (request: Request) => {
   if (!bloodSugar || !plannedCarbGrams) {
     return NextResponse.json(
       {
-        error: "Missing required query parameters",
+        error: 'Missing required query parameters',
       },
       { status: 400 }
     );
@@ -61,7 +30,7 @@ export const POST = async (request: Request) => {
 
   const totalDose = roundNumberSafe(correctionDose + carbDose, 1);
 
-  return NextResponse.json<ResponseData>({
+  return NextResponse.json<API.CalculationResponse>({
     sugar: {
       current: bloodSugar,
       target,

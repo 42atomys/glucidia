@@ -36,6 +36,7 @@ jobs:
   ###############################
   build:
     name: "Build 🔧"
+    secrets: inherit
     # needs: [linters, tests]
     uses: ./.github/workflows/build.yaml
   ###############################
