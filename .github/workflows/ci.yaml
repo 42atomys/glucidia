@@ -1,0 +1,45 @@
+name: CI/CD 🚀
+on:
+  release:
+    types: [prereleased, released]
+  pull_request:
+    types: [ready_for_review, synchronize, reopened, labeled]
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ###############################
+  ########### LINTERS ###########
+  ###############################
+  # linters:
+  #   name: "Linters 🧹"
+  #   uses: ./.github/workflows/linters.yaml
+  ###############################
+  ############ TESTS ############
+  ###############################
+  # tests:
+  #   name: Tests 🧪
+  #   uses: ./.github/workflows/tests.yaml
+  #   secrets: inherit
+  ###############################
+  ############ BUILD ############
+  ###############################
+  build:
+    name: "Build 🔧"
+    # needs: [linters, tests]
+    uses: ./.github/workflows/build.yaml
+  ###############################
+  ########### DEPLOY ############
+  ###############################
+
+  # deploy:
+  #   name: "Deploy 🚀"
+  #   needs: [build]
+  #   uses: ./.github/workflows/deploy.yaml
+  #   secrets: inherit
