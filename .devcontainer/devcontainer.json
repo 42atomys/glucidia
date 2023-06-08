@@ -1,0 +1,126 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "Glucid.IA",
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "workspace",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true,
+      "upgradePackages": true,
+      "username": "vscode",
+      "userUid": "1001",
+      "userGid": "1001"
+    },
+    "ghcr.io/devcontainers-contrib/features/prisma:2": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+      "plugins": "ssh-agent npm",
+      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+      "username": "root"
+    }
+  },
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        "editor.formatOnSave": true,
+        "terminal.integrated.fontFamily": "'DejaVu Sans Mono for Powerline', monospace",
+        "editor.tabSize": 2,
+        "editor.renderWhitespace": "all",
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": true,
+          "source.fixAll": true
+        },
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.suggestSelection": "first",
+        "git.autofetch": true,
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "files.autoGuessEncoding": true,
+        "files.encoding": "utf8",
+        "workbench.editor.decorations.badges": true,
+        "workbench.editor.decorations.colors": true,
+        "editor.inlineSuggest.enabled": true,
+        "editor.rulers": [80],
+        "eslint.packageManager": "yarn",
+        "eslint.workingDirectories": [
+          {
+            "directory": "."
+          }
+        ],
+        "search.useGlobalIgnoreFiles": true,
+        "search.useParentIgnoreFiles": true,
+        "workbench.productIconTheme": "fluent-icons",
+        "[yaml]": {
+          "editor.defaultFormatter": "redhat.vscode-yaml"
+        },
+        "[markdown]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[jsonc]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
+      },
+
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+		"aaron-bond.better-comments",
+		"IBM.output-colorizer",
+		"miguelsolorio.fluent-icons",
+		"jasonnutter.vscode-codeowners",
+		"ms-azuretools.vscode-docker",
+		"eamodio.gitlens",
+		"yzhang.markdown-all-in-one",
+		"bierner.markdown-mermaid",
+		"quicktype.quicktype",
+		"esbenp.prettier-vscode",
+		"bradlc.vscode-tailwindcss",
+		"redhat.vscode-yaml",
+		"orta.vscode-jest",
+		"Prisma.prisma"
+	]
+    }
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [
+    3000 // web-ui port
+  ],
+
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  // "remoteUser": "vscode",
+  "portsAttributes": {
+    "3000": {
+      "label": "Webapp"
+    }
+  }
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+
+  // Configure tool-specific properties.
+  // "customizations": {},
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}

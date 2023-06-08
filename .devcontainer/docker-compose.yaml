@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  workspace:
+    hostname: glucidia-dev-workspace
+    image: mcr.microsoft.com/devcontainers/typescript-node:0-20
+    tty: true
+    env_file:
+      - .env
+    environment:
+      # Cross service
+      DEBUG: 'true'
+      DATABASE_URL: postgresql://postgres:postgres@database:5432/glucidia?sslmode=disable
+    volumes:
+      - ..:/workspace:cached
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+    # Uncomment the next line to use a non-root user for all processes.
+    # user: vscode
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an workspace port locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+  database:
+    hostname: glucidia-database
+    image: postgres:15-alpine3.18
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: glucidia
+    # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+volumes:
+  postgres-data:
+
+
+networks:
+  glucidia-dev-network:

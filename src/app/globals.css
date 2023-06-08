@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply dark:bg-slate-950 bg-slate-50 dark:text-slate-50 text-slate-950;
+  }
+}
+
+@layer utilities {
+  .button-gradient {
+    @apply relative overflow-hidden;
+    padding: var(--tw-border-width);
+
+    --tw-gradient-scale: 1.2;
+  }
+  .button-gradient::after {
+    --tw-gradient-rotate: 0deg;
+
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -100%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: calc(100% + calc(var(--tw-border-width) * 2));
+    aspect-ratio: 1 / 1;
+    transform: rotate(0deg) scale(var(--tw-gradient-scale));
+    background: linear-gradient(to right, var(--tw-gradient-stops));
+    animation: 2s gradientrotate linear infinite;
+  }
+
+  @keyframes gradientrotate {
+    0% {
+      transform: rotate(0deg) scale(var(--tw-gradient-scale));
+    }
+    100% {
+      transform: rotate(360deg) scale(var(--tw-gradient-scale));
+    }
+  }
+}
