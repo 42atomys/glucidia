@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/components/Theme';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Metadata } from 'next';
 import './globals.css';
 

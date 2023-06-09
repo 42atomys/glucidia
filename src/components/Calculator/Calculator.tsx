@@ -25,7 +25,7 @@ const Input = function ({
       id={name}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full bg-slate-800/40 outline-none ring-1 ring-transparent focus:ring-slate-700 text-white px-6 py-4 rounded-lg placeholder:text-slate-500/50"
+      className="w-full bg-slate-200/40 dark:bg-slate-800/40 outline-none ring-1 ring-transparent focus:ring-slate-700 text-slate-950 dark:text-white px-6 py-4 rounded-lg placeholder:text-slate-500/50"
     />
   );
 };
@@ -97,7 +97,7 @@ export const Calculator = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 my-10 gap-4">
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-2 gap-4 rounded-lg bg-slate-900/50 border border-slate-500/25 p-4"
+        className="grid grid-cols-2 gap-4 rounded-lg bg-slate-100/50 dark:bg-slate-900/50 border border-slate-500/25 p-4"
       >
         <div className="col-span-2">
           <h5 className="text-lg">Glycemie</h5>
@@ -127,7 +127,7 @@ export const Calculator = () => {
             placeholder="ex: 100"
           />
         </div>
-        <hr className="col-span-2 border-slate-700" />
+        <hr className="col-span-2 border-slate-300 dark:border-slate-700" />
         <div className="col-span-2">
           <h5 className="text-lg">Repas</h5>
           <p className="text-slate-400">
@@ -143,7 +143,7 @@ export const Calculator = () => {
             placeholder="ex: 55"
           />
         </div>
-        <hr className="col-span-2 border-slate-700" />
+        <hr className="col-span-2 border-slate-300 dark:border-slate-700" />
         <div className="col-span-2">
           <h5 className="text-lg">Données de l&apos;utilisateur</h5>
           <p className="text-slate-400">
@@ -177,18 +177,18 @@ export const Calculator = () => {
         </div>
         <div className="mt-4 col-span-2 [--tw-border-width:2px] [--tw-gradient-scale:2] rounded-lg button-gradient from-indigo-500 via-amber-500 via-50% to-indigo-500 shadow-lg shadow-indigo-500/50">
           {loading ? (
-            <Loader className="rounded-lg bg-slate-900 transition-all duration-300 px-8 py-2 hover:px-16" />
+            <Loader className="rounded-lg bg-slate-100 dark:bg-slate-900 transition-all duration-300 px-8 py-2 hover:px-16" />
           ) : (
             <button
               type="submit"
-              className="rounded-lg w-full bg-slate-900 transition-all duration-300 px-8 py-4 hover:px-16"
+              className="rounded-lg w-full bg-slate-100 dark:bg-slate-900 transition-all duration-300 px-8 py-4 hover:px-16"
             >
               Calculer pour moi !
             </button>
           )}
         </div>
       </form>
-      <div className="p-4 bg-indigo-950/25 border border-indigo-500/25 rounded-lg flex flex-col">
+      <div className="p-4 bg-slate-50/25 dark:bg-indigo-950/25 border border-indigo-500/25 rounded-lg flex flex-col">
         <div className="rounded-lg bg-indigo-500 saturate-150 text-white p-2 w-full">
           Remplissez le formulaire précédent pour voir les résultats !
         </div>
@@ -203,27 +203,29 @@ export const Calculator = () => {
           <div className="space-y-2">
             <h5 className="!mt-8">Données utiles</h5>
             <div className="flex flex-row justify-between items-end">
-              <p className="text-indigo-300/50">
+              <p className="text-indigo-700/50 dark:text-indigo-300/50">
                 Moy. d&apos;insuline par jour
               </p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
-              <p className="text-indigo-300 font-bold">
+              <p className="text-indigo-500 dark:text-indigo-300 font-bold">
                 {result._calculation?.dailyInsulinAverage || 0}
               </p>
             </div>
             <div className="flex flex-row justify-between items-end">
-              <p className="text-indigo-300/50">Votre insulino-resistance</p>
+              <p className="text-indigo-700/50 dark:text-indigo-300/50">
+                Votre insulino-resistance
+              </p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
-              <p className="text-indigo-300 font-bold">
+              <p className="text-indigo-500 dark:text-indigo-300 font-bold">
                 {result._calculation?.insulinSensitivityFactor || 0}
               </p>
             </div>
             <div className="flex flex-row justify-between items-end">
-              <p className="text-indigo-300/50">
+              <p className="text-indigo-700/50 dark:text-indigo-300/50">
                 Votre ratio pour pompe à insuline
               </p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
-              <p className="text-indigo-300 font-bold">
+              <p className="text-indigo-500 dark:text-indigo-300 font-bold">
                 {result._calculation?.pumpRatio || 0}
               </p>
             </div>
@@ -232,23 +234,29 @@ export const Calculator = () => {
           <div className="space-y-2">
             <h5 className="!mt-8">Injection</h5>
             <div className="flex flex-row justify-between items-end">
-              <p className="text-indigo-300/50">Unité de correction</p>
+              <p className="text-indigo-700/50 dark:text-indigo-300/50">
+                Unité de correction
+              </p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
-              <p className="text-indigo-300 font-bold">
+              <p className="text-indigo-500 dark:text-indigo-300 font-bold">
                 {result.sugar?.correctionDose || 0}
               </p>
             </div>
             <div className="flex flex-row justify-between items-end">
-              <p className="text-indigo-300/50">Unité de repas</p>
+              <p className="text-indigo-700/50 dark:text-indigo-300/50">
+                Unité de repas
+              </p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
-              <p className="text-indigo-300 font-bold">
+              <p className="text-indigo-500 dark:text-indigo-300 font-bold">
                 {result.meal?.carbDose || 0}
               </p>
             </div>
             <div className="flex flex-row justify-between items-end">
-              <p className="text-indigo-300/50">Total</p>
+              <p className="text-indigo-700/50 dark:text-indigo-300/50">
+                Total
+              </p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
-              <p className="text-indigo-300 font-bold">
+              <p className="text-indigo-500 dark:text-indigo-300 font-bold">
                 {result.totalDose || 0}
               </p>
             </div>

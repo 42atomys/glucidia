@@ -45,7 +45,7 @@ export default function Home() {
       <Blackhole className="fixed -z-10 top-[calc(var(--blackhole-size)/-3)] left-[calc(var(--blackhole-size)/-3)]" />
       <Header />
 
-      <div className="p-8 lg:p-20 backdrop-filter backdrop-blur-md bg-slate-950/80 space-y-20 w-full">
+      <div className="p-8 lg:p-20 backdrop-filter backdrop-blur-md bg-slate-50/80 dark:bg-slate-950/80 space-y-20 w-full">
         <section className="text-center">
           <h2 className="title">
             <FontAwesomeIcon icon={faLeaf} className="text-indigo-400" />{' '}
@@ -68,7 +68,7 @@ export default function Home() {
         </section>
       </div>
 
-      <div className="p-8 lg:p-20 backdrop-filter backdrop-blur-md bg-slate-950/80 grid grid-cols-1 sm:grid-cols-3 gap-5 space-y-10">
+      <div className="p-8 lg:p-20 backdrop-filter backdrop-blur-md bg-slate-50/80 dark:bg-slate-950/80 grid grid-cols-1 sm:grid-cols-3 gap-5 space-y-10">
         <section className="col-start-2 col-span-2 text-justify">
           <h2 className="title">
             <FontAwesomeIcon icon={faSparkles} className="text-indigo-400" />{' '}
@@ -122,15 +122,13 @@ export default function Home() {
           </p>
         </section>
       </div>
-      <div className="pb-20 bg-slate-950 text-center">
+      <div className="pb-20 bg-slate-50 dark:bg-slate-950 text-center">
         <div className="flex-1 p-8 lg:p-20">
           <h1 className="font-display text-7xl sm:text-8xl font-bold text-center text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-slate-50">
-              Glucidia
-            </span>
+            <span className="text-transparent title-gradient">Glucidia</span>
           </h1>
           <p className="text-2xl font-bold text-center text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-slate-50">
+            <span className="text-transparent title-gradient">
               Rejoindre la communauté Glucidia
             </span>
           </p>

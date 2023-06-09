@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@100;300;400;500;600;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Geologica&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geologica&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,8 +12,11 @@
 }
 
 @layer utilities {
+  .title-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-indigo-500 dark:to-slate-50 mix-blend-multiply dark:mix-blend-normal;
+  }
   .title {
-    @apply text-4xl font-extrabold font-display text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-slate-50;
+    @apply title-gradient text-4xl font-extrabold font-display;
   }
 
   .button-gradient {
@@ -27,7 +30,7 @@
   .button-gradient::after {
     --tw-gradient-rotate: 0deg;
 
-    content: "";
+    content: '';
     position: absolute;
     z-index: calc(var(--tw-z-index) - 1);
     top: -100%;

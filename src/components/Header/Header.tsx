@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Subscribe } from '../Subscribe';
+import { ThemeIcon } from '../Theme';
 
 export const Header = () => (
   <motion.header
@@ -12,13 +13,12 @@ export const Header = () => (
   >
     <div className="flex-1 w-full hidden sm:block" />
     <div className="flex-1 p-8 lg:p-20">
-      <h1 className="font-display text-7xl sm:text-8xl font-bold text-center text-white">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-slate-50">
-          Glucidia
-        </span>
+      <h1 className="font-display text-7xl sm:text-8xl font-bold text-center text-slate-950 dark:text-white flex flex-row justify-center items-end">
+        <span className="title-gradient">Glucidia</span>
+        <ThemeIcon />
       </h1>
-      <p className="text-2xl font-bold text-center text-white">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-slate-50">
+      <p className="text-2xl font-bold text-center text-slate-950 dark:text-white">
+        <span className="title-gradient">
           Votre compagnon pour le diabète, propulsé par l&apos;IA 🤖
         </span>
       </p>
