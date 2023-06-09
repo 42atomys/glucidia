@@ -1,3 +1,5 @@
+'use client';
+
 import { InputHTMLAttributes, useState } from 'react';
 import { Loader } from '../Loader';
 

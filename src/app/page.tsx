@@ -1,7 +1,6 @@
-'use client';
-
 import { Calculator } from '@/components/Calculator';
-import { Subscribe } from '@/components/Subscribe/Subscribe';
+import { Header } from '@/components/Header';
+import { Subscribe } from '@/components/Subscribe';
 import {
   faFaceThinking,
   faLeaf,
@@ -9,7 +8,6 @@ import {
   faSyringe,
 } from '@fortawesome/pro-duotone-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { motion } from 'framer-motion';
 import { tv } from 'tailwind-variants';
 
 const blackhole = tv({
@@ -45,27 +43,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center overflow-hidden">
       <Blackhole className="fixed -z-10 top-[calc(var(--blackhole-size)/-3)] left-[calc(var(--blackhole-size)/-3)]" />
-      <motion.header
-        initial={{ opacity: 0, top: -100, scale: 2 }}
-        animate={{ opacity: 1, top: 0, scale: 1 }}
-        transition={{ duration: 1, delay: 0.5, bounce: 0.5, type: 'spring' }}
-        className="flex flex-row items-center justify-center w-full h-full text-center min-h-[80vh]"
-      >
-        <div className="flex-1 w-full hidden sm:block" />
-        <div className="flex-1 p-8 lg:p-20">
-          <h1 className="font-display text-7xl sm:text-8xl font-bold text-center text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-slate-50">
-              Glucidia
-            </span>
-          </h1>
-          <p className="text-2xl font-bold text-center text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-slate-50">
-              Votre compagnon pour le diabète, propulsé par l&apos;IA 🤖
-            </span>
-          </p>
-          <Subscribe />
-        </div>
-      </motion.header>
+      <Header />
 
       <div className="p-8 lg:p-20 backdrop-filter backdrop-blur-md bg-slate-950/80 space-y-20 w-full">
         <section className="text-center">
