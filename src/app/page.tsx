@@ -39,11 +39,15 @@ const Blackhole = ({ className }: { className?: string }) => (
   </div>
 );
 
-export default function Home() {
+export default function Home({
+  searchParams: { invitedBy },
+}: {
+  searchParams: { invitedBy?: string };
+}) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center overflow-hidden">
       <Blackhole className="fixed -z-10 top-[calc(var(--blackhole-size)/-3)] left-[calc(var(--blackhole-size)/-3)]" />
-      <Header />
+      <Header invitedBy={invitedBy} />
 
       <div className="p-8 lg:p-20 backdrop-filter backdrop-blur-md bg-slate-50/80 dark:bg-slate-950/80 space-y-20 w-full">
         <section className="text-center">
@@ -132,7 +136,7 @@ export default function Home() {
               Rejoindre la communauté Glucidia
             </span>
           </p>
-          <Subscribe />
+          <Subscribe invitedBy={invitedBy} />
         </div>
       </div>
     </main>

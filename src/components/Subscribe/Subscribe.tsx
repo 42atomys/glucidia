@@ -1,17 +1,14 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { Loader } from '../Loader';
 
-export const Subscribe = () => {
+export const Subscribe = ({ invitedBy }: { invitedBy?: string }) => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const searchParams = useSearchParams();
 
-  if (searchParams.has('invitedBy'))
-    localStorage.setItem('invitedBy', searchParams.get('invitedBy')!);
+  if (invitedBy) localStorage.setItem('invitedBy', invitedBy);
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

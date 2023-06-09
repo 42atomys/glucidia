@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Subscribe } from '../Subscribe';
 import { ThemeIcon } from '../Theme';
 
-export const Header = () => (
+export const Header = ({ invitedBy }: { invitedBy?: string }) => (
   <motion.header
     initial={{ opacity: 0, top: -100, scale: 2 }}
     animate={{ opacity: 1, top: 0, scale: 1 }}
@@ -22,7 +22,7 @@ export const Header = () => (
           Votre compagnon pour le diabète, propulsé par l&apos;IA 🤖
         </span>
       </p>
-      <Subscribe />
+      <Subscribe invitedBy={invitedBy} />
     </div>
   </motion.header>
 );
