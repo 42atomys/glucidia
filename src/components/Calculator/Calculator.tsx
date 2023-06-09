@@ -191,6 +191,12 @@ export const Calculator = () => {
           Remplissez le formulaire précédent pour voir les résultats !
         </div>
 
+        {result.error && (
+          <div className="rounded-lg bg-red-500 saturate-150 text-white p-2 w-full mt-4">
+            Merci de remplir tous les champs obligatoires
+          </div>
+        )}
+
         <div className="flex flex-col flex-1">
           <div className="space-y-2">
             <h5 className="!mt-8">Données utiles</h5>
@@ -200,14 +206,14 @@ export const Calculator = () => {
               </p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
               <p className="text-indigo-300 font-bold">
-                {result._calculation.dailyInsulinAverage}
+                {result._calculation?.dailyInsulinAverage || 0}
               </p>
             </div>
             <div className="flex flex-row justify-between items-end">
               <p className="text-indigo-300/50">Votre insulino-resistance</p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
               <p className="text-indigo-300 font-bold">
-                {result._calculation.insulinSensitivityFactor}
+                {result._calculation?.insulinSensitivityFactor || 0}
               </p>
             </div>
             <div className="flex flex-row justify-between items-end">
@@ -216,7 +222,7 @@ export const Calculator = () => {
               </p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
               <p className="text-indigo-300 font-bold">
-                {result._calculation.pumpRatio}
+                {result._calculation?.pumpRatio || 0}
               </p>
             </div>
           </div>
@@ -227,26 +233,30 @@ export const Calculator = () => {
               <p className="text-indigo-300/50">Unité de correction</p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
               <p className="text-indigo-300 font-bold">
-                {result.sugar.correctionDose}
+                {result.sugar?.correctionDose || 0}
               </p>
             </div>
             <div className="flex flex-row justify-between items-end">
               <p className="text-indigo-300/50">Unité de repas</p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
               <p className="text-indigo-300 font-bold">
-                {result.meal.carbDose}
+                {result.meal?.carbDose || 0}
               </p>
             </div>
             <div className="flex flex-row justify-between items-end">
               <p className="text-indigo-300/50">Total</p>
               <hr className="flex-1 mx-2 border-indigo-300/25" />
-              <p className="text-indigo-300 font-bold">{result.totalDose}</p>
+              <p className="text-indigo-300 font-bold">
+                {result.totalDose || 0}
+              </p>
             </div>
           </div>
 
           <div className="w-full text-center flex-1 flex flex-col justify-center items-center my-10">
             <p className="title !text-4xl">Votre injection est de</p>
-            <p className="title font-extrabold !text-8xl">{result.totalDose}</p>
+            <p className="title font-extrabold !text-8xl">
+              {result.totalDose || 0}
+            </p>
           </div>
         </div>
       </div>

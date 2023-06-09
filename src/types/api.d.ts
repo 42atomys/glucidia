@@ -1,6 +1,6 @@
 namespace API {
   export interface Error {
-    error: string;
+    error?: string;
   }
 
   export interface CalculationRequest {
@@ -11,7 +11,7 @@ namespace API {
     algorithm?: number;
   }
 
-  export interface CalculationResponse {
+  export interface CalculationResponse extends Error {
     sugar: {
       current: number;
       target: number;
