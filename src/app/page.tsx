@@ -60,7 +60,7 @@ export default function Home() {
           </h1>
           <p className="text-2xl font-bold text-center text-white">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-slate-50">
-              Votre compagnion pour le diabète, propulsé par l&apos;IA 🤖
+              Votre compagnon pour le diabète, propulsé par l&apos;IA 🤖
             </span>
           </p>
           <Subscribe />
