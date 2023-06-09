@@ -18,7 +18,7 @@ const Input = function ({
     <input
       type="number"
       step={step}
-      value={value}
+      value={value || ''}
       name={name}
       id={name}
       onChange={(e) => onChange(e.target.value)}
@@ -53,7 +53,16 @@ export const Calculator = () => {
   } as API.CalculationResponse);
 
   const set = (key: keyof API.CalculationRequest, value: string) => {
-    setRequest({ ...request, [key]: parseFloat(value) });
+    if (value === '') {
+      setRequest({ ...request, [key]: null });
+      return;
+    }
+
+    const floatValue = parseFloat(value.replace(',', '.'));
+    if (isNaN(floatValue)) {
+      return;
+    }
+    setRequest({ ...request, [key]: floatValue });
   };
 
   const fetchAPI = () => {
